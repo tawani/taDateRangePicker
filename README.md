@@ -2,7 +2,9 @@
 Pure AngularJS DateRangePicker (no jQuery required)
 
 Sample usage
-        <ta-date-range-picker ng-model="dateRange" ranges="customRanges" callback="dateRangeChanged()"></ta-date-range-picker>
+
+        <ta-date-range-picker ng-model="dateRange" ranges="customRanges" 
+                callback="dateRangeChanged()"></ta-date-range-picker>
 
 Add required files
 
