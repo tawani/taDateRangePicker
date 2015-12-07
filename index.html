@@ -1,0 +1,106 @@
+<html lang="en" ng-app="app">
+
+<head>
+    <meta name="viewport" content="initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link href="dist/ta-date-range-picker.css" rel="stylesheet" />
+    
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+
+    <div style="max-width: 960px; margin: auto;">
+        <h1>Pure Angular DateRangePicker (no jQuery)</h1>
+        <p>&nbsp;</p>
+       
+       
+        <div>
+            <input type="text" ng-model="dateRange2.start"/> - <input type="text" ng-model="dateRange2.end" />
+        </div>
+
+        <p>&nbsp;</p>
+        <h3>Default Ranges</h3>
+        <ta-date-range-picker ng-model="dateRange2"></ta-date-range-picker>
+
+        <p>&nbsp;</p>
+      
+        <h3>Custom Ranges - with Callback</h3>
+        <ta-date-range-picker ng-model="dateRange" ranges="customRanges" callback="dateRangeChanged()"></ta-date-range-picker>
+
+        <p>&nbsp;</p>
+        <h3>Call back: <code>{{mycallback}}</code></h3>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="libs/bindonce.min.js"></script>
+    <script type="text/javascript" src="libs/moment.min.js"></script>
+    <script type="text/javascript" src="libs/moment-range.min.js"></script>
+    <script src="dist/ta-date-range-picker.js"></script>
+
+    <script>
+        (function () {
+            var app = angular.module("app", ['tawani.utils']);
+
+            app.controller("MainCtrl", ['$scope', function ($scope) {
+
+
+               
+
+                // specify default date range in controller
+                $scope.dateRange = moment().range("2015-12-05", "2016-01-25");
+
+
+                //Select range options
+                $scope.customRanges = [
+                    {
+                        label: "This week",
+                        range: moment().range(
+                            moment().startOf("week").startOf("day"),
+                            moment().endOf("week").startOf("day")
+                        )
+                    },
+                    {
+                        label: "Last month",
+                        range: moment().range(
+                            moment().add(-1, "month").startOf("month").startOf("day"),
+                            moment().add(-1, "month").endOf("month").startOf("day")
+                        )
+                    },
+                    {
+                        label: "This month",
+                        range: moment().range(
+                            moment().startOf("month").startOf("day"),
+                            moment().endOf("month").startOf("day")
+                        )
+                    },
+                    {
+                        label: "This year",
+                        range: moment().range(
+                            moment().startOf("year").startOf("day"),
+                            moment().endOf("year").startOf("day")
+                        )
+                    },
+                    {
+                        label: "Last year",
+                        range: moment().range(
+                            moment().startOf("year").add(-1, "year").startOf("day"),
+                            moment().add(-1, "year").endOf("year").startOf("day")
+                        )
+                    }
+                ];
+
+                $scope.mycallback = "None";
+                $scope.dateRangeChanged = function() {
+                    $scope.mycallback = " from " + $scope.dateRange.start.format("LL") + " to " + $scope.dateRange.end.format("LL");
+                }
+
+            }]);
+           
+        })();
+    </script>
+
+</body>
+
+</html>
