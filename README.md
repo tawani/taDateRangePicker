@@ -59,5 +59,7 @@ Add required files
 
 #Also Requires
 MomentJS - https://github.com/moment/moment/
+
 Moment-Range - https://github.com/gf3/moment-range
+
 BindOnce - https://github.com/Pasvaz/bindonce
