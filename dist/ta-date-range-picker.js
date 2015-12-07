@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     angular.module("tawani.utils", ['pasvaz.bindonce']);
 
     angular.module("tawani.utils").directive('taDateRangePicker',
