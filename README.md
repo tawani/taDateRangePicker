@@ -1,12 +1,16 @@
 # taDateRangePicker
-Pure AngularJS DateRangePicker (no jQuery required)
+###Pure AngularJS DateRangePicker (no jQuery required)
 
-Sample usage
+![alt tag](pure-angular-date-range-picker.png)
+
+After searching all over for a simple AngularJS Date Range Picker that did not require jQuery, I ended writing this lite version. The CSS style is adapted from [dangrossman's bootstrap-daterangepicker](https://github.com/dangrossman/bootstrap-daterangepicker) 
+
+###Sample usage
 
         <ta-date-range-picker ng-model="dateRange" ranges="customRanges" 
                 callback="dateRangeChanged()"></ta-date-range-picker>
 
-Add required files
+###Add required files
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -17,6 +21,8 @@ Add required files
         <script type="text/javascript" src="libs/moment.min.js"></script>
         <script type="text/javascript" src="libs/moment-range.min.js"></script>
         <script src="dist/ta-date-range-picker.js"></script>
+        
+###Sample Code        
 
         angular.module("app", ['tawani.utils'])
             .controller("MainCtrl", ['$scope', function ($scope) {
@@ -57,9 +63,7 @@ Add required files
 
             }]);
 
-#Also Requires
-MomentJS - https://github.com/moment/moment/
-
-Moment-Range - https://github.com/gf3/moment-range
-
-BindOnce - https://github.com/Pasvaz/bindonce
+###Also Requires
+- [Moment](https://github.com/moment/moment)
+- [Moment-Range](https://github.com/gf3/moment-range)
+- [BindOnce](https://github.com/Pasvaz/bindonce)
